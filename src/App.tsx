@@ -52,38 +52,46 @@ function App() {
             onChange={(e) => setSearch(e.target.value)}
           />
 
-          {selectedUser && (
+          {/* {selectedUser && (
             //<div className="mb-6 p-4 bg-white rounded-lg shadow">
-            <div className="mb-6 p-4 bg-gray-900 rounded-lg shadow">
-              <h2 className="text-xl font-bold mb-2">{selectedUser.name}</h2>
-              <p className="text-gray-400">Email: {selectedUser.email}</p>
-              <p className="text-gray-400">User ID: {selectedUser.id}</p>
-
-              <button
-                className="mt-4 bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
-                onClick={() => setSelectedUser(null)}
-              >
-                Close
-              </button>
-            </div>
-          )}
+          )} */}
 
           <h1>Users</h1>
           <div className="grid gap-3">
             {filteredUsers.length === 0 ? (
               <p className="text-center text-gray-500">No users found</p>
             ) : (
-              filteredUsers.map((user) => (
-                <div
-                  //className="p-4 bg-white rounded-lg shadow hover:shadow-md cursor-pointer transition"
-                  className="p-4 bg-gray-900 rounded-lg shadow hover:shadow-md cursor-pointer transition"
-                  key={user.id}
-                  onClick={() => setSelectedUser(user)}
-                >
-                  <p className="font-semibold">{user.name}</p>
-                  <p className="text-gray-500 text-sm">{user.email}</p>
-                </div>
-              ))
+              filteredUsers.map((user) =>
+                selectedUser && selectedUser.id === user.id ? (
+                  <div
+                    className="p-4 bg-gray-900 rounded-lg shadow"
+                    onClick={() => setSelectedUser(null)}
+                  >
+                    <h2 className="text-xl font-bold mb-2">
+                      {selectedUser.name}
+                    </h2>
+                    <p className="text-gray-400">Email: {selectedUser.email}</p>
+                    <p className="text-gray-400">User ID: {selectedUser.id}</p>
+
+                    {/* <button
+                      className="mt-4 bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+                      onClick={() => setSelectedUser(null)}
+                    >
+                      Close
+                    </button> */}
+                  </div>
+                ) : (
+                  <div
+                    //className="p-4 bg-white rounded-lg shadow hover:shadow-md cursor-pointer transition"
+                    className="p-4 bg-gray-900 rounded-lg shadow hover:shadow-md cursor-pointer transition"
+                    key={user.id}
+                    onClick={() => setSelectedUser(user)}
+                  >
+                    <p className="font-semibold">{user.name}</p>
+                    <p className="text-gray-500 text-sm">{user.email}</p>
+                  </div>
+                ),
+              )
             )}
           </div>
         </div>
