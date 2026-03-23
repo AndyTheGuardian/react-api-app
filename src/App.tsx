@@ -51,6 +51,21 @@ function App() {
             onChange={(e) => setSearch(e.target.value)}
           />
 
+          {selectedUser && (
+            <div className="mb-6 p-4 bg-white rounded-lg shadow">
+              <h2 className="text-xl font-bold mb-2">{selectedUser.name}</h2>
+              <p className="text-gray-600">Email: {selectedUser.email}</p>
+              <p className="text-gray-600">User ID: {selectedUser.id}</p>
+
+              <button
+                className="mt-4 bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+                onClick={() => setSelectedUser(null)}
+              >
+                Close
+              </button>
+            </div>
+          )}
+
           <h1>Users</h1>
           <div className="grid gap-3">
             {filteredUsers.length === 0 ? (
@@ -68,21 +83,6 @@ function App() {
               ))
             )}
           </div>
-
-          {selectedUser && (
-            <div className="mt-6 p-4 bg-white rounded-lg shadow">
-              <h2 className="text-xl font-bold mb-2">{selectedUser.name}</h2>
-              <p className="text-gray-600">Email: {selectedUser.email}</p>
-              <p className="text-gray-600">User ID: {selectedUser.id}</p>
-
-              <button
-                className="mt-4 bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
-                onClick={() => setSelectedUser(null)}
-              >
-                Close
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>
