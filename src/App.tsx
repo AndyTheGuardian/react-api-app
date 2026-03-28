@@ -64,7 +64,7 @@ function App() {
               filteredUsers.map((user) =>
                 selectedUser && selectedUser.id === user.id ? (
                   <div
-                    className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg shadow"
+                    className="p-4 bg-gray-100 dark:bg-gray-900 hover:shadow-md hover:bg-gray-50 hover:dark:bg-gray-950 rounded-lg shadow"
                     onClick={() => setSelectedUser(null)}
                   >
                     <h2 className="text-xl font-bold mb-2">
@@ -87,7 +87,7 @@ function App() {
                 ) : (
                   <div
                     //className="p-4 bg-white rounded-lg shadow hover:shadow-md cursor-pointer transition"
-                    className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg shadow hover:shadow-md cursor-pointer transition"
+                    className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg shadow hover:shadow-md hover:bg-gray-50 hover:dark:bg-gray-950 cursor-pointer transition"
                     key={user.id}
                     onClick={() => setSelectedUser(user)}
                   >
