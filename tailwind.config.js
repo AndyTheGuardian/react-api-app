@@ -6,6 +6,6 @@ export default {
   },
   plugins: [],
 };
-module.exports = {
-  darkMode: "media",
-};
+// module.exports = {
+//   darkMode: "media",
+// };
