@@ -40,12 +40,12 @@ function App() {
 
   return (
     //<div className="min-h-screen bg-gray-100 p-6">
-    <div className="min-h-screen bg-gray-800 p-6">
-      <div className="max-w-2xl mx-auto text-gray-100">
+    <div className="min-h-screen bg-gray-200 p-6 dark:bg-gray-800">
+      <div className="max-w-2xl mx-auto text-gray-900 dark:text-gray-100">
         <h1 className="text-3xl font-bold mb-4 text-center">User Directory</h1>
         <div>
           <input
-            className="w-full p-2 mb-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-900"
+            className="w-full p-2 mb-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-100 dark:bg-gray-900"
             type="text"
             placeholder="Search users..."
             value={search}
@@ -64,14 +64,18 @@ function App() {
               filteredUsers.map((user) =>
                 selectedUser && selectedUser.id === user.id ? (
                   <div
-                    className="p-4 bg-gray-900 rounded-lg shadow"
+                    className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg shadow"
                     onClick={() => setSelectedUser(null)}
                   >
                     <h2 className="text-xl font-bold mb-2">
                       {selectedUser.name}
                     </h2>
-                    <p className="text-gray-400">Email: {selectedUser.email}</p>
-                    <p className="text-gray-400">User ID: {selectedUser.id}</p>
+                    <p className="text-gray-600  dark:text-gray-400">
+                      Email: {selectedUser.email}
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      User ID: {selectedUser.id}
+                    </p>
 
                     {/* <button
                       className="mt-4 bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
@@ -83,7 +87,7 @@ function App() {
                 ) : (
                   <div
                     //className="p-4 bg-white rounded-lg shadow hover:shadow-md cursor-pointer transition"
-                    className="p-4 bg-gray-900 rounded-lg shadow hover:shadow-md cursor-pointer transition"
+                    className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg shadow hover:shadow-md cursor-pointer transition"
                     key={user.id}
                     onClick={() => setSelectedUser(user)}
                   >
